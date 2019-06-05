@@ -225,7 +225,7 @@ app.get('/history', function(req, res, next){
 				const request = Request.defaults({jar: true})
 				var cookie = request.cookie('erp_session=' + req.cookies.erp_session);
 				const options = {
-					url: "http://localhost:5000/api/awards_currentuser/" + userData.user_id,
+					url: "http://104.43.138.230:5000/api/awards_currentuser/" + userData.user_id,
 					headers: {
 						'Cookie': cookie
 					},
@@ -344,7 +344,7 @@ app.use(function(err, req, res, next){
 });
 
 app.listen(app.get('port'), function(){
-  console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
+  console.log('Express started on ' + app.get('port') + '; press Ctrl-C to terminate.');
 });
 
 module.exports = app; //required for dynamic meta tags

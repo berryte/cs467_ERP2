@@ -69,13 +69,13 @@ module.exports = function(){
                     context.title = 'ERP Award Preview';
                     context.css = [hostName + 'public/css/table.css', hostName + 'public/userMain.css'];
                     //get award record data for rendering latex award file
-                    const url = "http://localhost:5000/api/awards/"+ req.params.id;
+                    const url = "http://104.43.138.230:5000/api/awards/"+ req.params.id;
                     callAPIAwardRecord(url, req.cookies.erp_session, context, complete);
                     function complete(){
                         callbackCount++;
                         if(callbackCount === 1){   
                             //get presenter sig and sig file name
-                            const presentersigurl = "http://localhost:5000/api/awards_presenter_sig/"+ context.awardrecord[0].presenter_id; 
+                            const presentersigurl = "http://104.43.138.230:5000/api/awards_presenter_sig/"+ context.awardrecord[0].presenter_id; 
                             callAPIPresenterSig(presentersigurl, req.cookies.erp_session, context, complete);
                         }
                         else if (callbackCount === 2){
